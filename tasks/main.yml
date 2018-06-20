@@ -1,7 +1,13 @@
 ---
-# tasks file for ansible-role-create-account 
-- name: "FILE | create a file"
-  file:
-    path: "./{{ file }}.txt"
-    state: touch
-  
+# - name: "Nginx | Pre Vhost {{ domain }}"
+#   template:
+#     src: pre-vhost.j2
+#     dest: "/etc/nginx/sites-enabled/{{ domain }}"
+#    notify: nginx reload
+
+#- import_tasks: letsencrypt.yml
+- name: "Nginx | Vhost {{ domain }}"
+  template:
+    src: vhost.j2
+    dest: "/etc/nginx/sites-enabled/{{ domain }}"
+  notify: nginx reload

@@ -3,13 +3,19 @@
 
   vars:
     gitlab_restart_handler_failed_when: false
-    file: "test"
+    ansistrano_deploy_to: 
+    domain: test.fr
+    domain_alias: shop.test.fr
+    php_version: 7.2
+
 
   pre_tasks:
     - name: Update apt cache.
       apt: update_cache=yes cache_valid_time=600
       when: ansible_os_family == 'Debian'
       changed_when: false
+    - name: Install nginx
+      include_task: arnobirchler.nginx
 
   roles:
     - role_under_test

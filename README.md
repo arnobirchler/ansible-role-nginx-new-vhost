@@ -7,12 +7,19 @@ Empty role with travis-ci configuration
 Requirements
 ------------
 
-No requierements needed
+```
+- arnobirchler.nginx
+```
 
 Role Variables
 --------------
 
-No variables needed.
+```
+- php_version: 
+- redirect_domain: domain.com
+- domain: "domain.com"
+- domain_alias: "shop.domain.com back.domain.com"
+```
 
 Dependencies
 ------------
